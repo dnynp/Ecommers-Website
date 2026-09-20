@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order History | ShopNest</title>
+    <meta name="description" content="Track live shipments and review previous purchase receipts from your ShopNest account." />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <aside class="announcement-bar">
+      Complimentary standard shipping on all orders over ₹999 &bull; 30-day hassle-free returns
+    </aside>
+
+    <header class="site-header">
+      <div class="header-container">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">SN</span>
+          <span>ShopNest</span>
+        </a>
+        <nav class="nav" aria-label="Main Navigation">
+          <a href="index.html">Catalog</a>
+          <a href="cart.html">Cart <span class="cart-pill" data-cart-count>0</span></a>
+          <a href="orders.html" aria-current="page">Orders</a>
+          <a href="login.html" data-auth-link>Sign In</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-title">
+        <h1>My Order History</h1>
+      </div>
+
+      <section id="ordersList" class="orders-list" aria-live="polite"></section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <h3>ShopNest</h3>
+          <p>Curated everyday essentials, modern audio gear, durable carry goods, and timeless lifestyle goods.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">All Products</a></li>
+            <li><a href="cart.html">Shopping Cart</a></li>
+            <li><a href="orders.html">Order History</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="terms.html">Shipping &amp; Returns</a></li>
+            <li><a href="terms.html">Warranty Claims</a></li>
+            <li><a href="terms.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-container">
+          <p>&copy; 2026 ShopNest Retail Inc. All rights reserved.</p>
+          <div class="footer-legal-links">
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="js/app.js"></script>
+    <script src="js/orders.js"></script>
+  </body>
+</html>

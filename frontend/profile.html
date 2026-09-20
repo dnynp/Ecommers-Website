@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile | ShopNest</title>
+    <meta name="description" content="Manage your ShopNest profile, avatar, address, and password." />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <aside class="announcement-bar">
+      Complimentary standard shipping on all orders over Rs. 999 &bull; 30-day hassle-free returns
+    </aside>
+
+    <header class="site-header">
+      <div class="header-container">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">SN</span>
+          <span>ShopNest</span>
+        </a>
+        <nav class="nav" aria-label="Main Navigation">
+          <a href="index.html">Catalog</a>
+          <a href="cart.html">Cart <span class="cart-pill" data-cart-count>0</span></a>
+          <a href="orders.html">Orders</a>
+          <a href="profile.html" aria-current="page" data-auth-link>Account</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div id="profileLayout" class="profile-layout" aria-live="polite">
+        <aside class="profile-sidebar" aria-label="Profile Navigation">
+          <ul class="profile-nav-list">
+            <li class="profile-nav-item"><button class="profile-nav-link active" type="button" data-panel-target="overviewPanel">Overview</button></li>
+            <li class="profile-nav-item"><a class="profile-nav-link" href="orders.html">My Orders</a></li>
+            <li class="profile-nav-item"><button class="profile-nav-link" type="button" data-panel-target="paymentsPanel">My Payments</button></li>
+            <li class="profile-nav-item"><button class="profile-nav-link" type="button" data-panel-target="walletPanel">My Wallet</button></li>
+            <li class="profile-nav-item"><button class="profile-nav-link" type="button" data-panel-target="addressesPanel">My Addresses</button></li>
+            <li class="profile-nav-item"><button class="profile-nav-link" type="button" data-panel-target="profilePanel">My Profile</button></li>
+            <li class="profile-nav-item"><button id="logoutButton" class="profile-nav-link logout-btn" type="button">Logout</button></li>
+          </ul>
+        </aside>
+
+        <section class="profile-main-content">
+          <article class="profile-banner-card">
+            <div class="profile-banner-top">
+              <div id="profileAvatar" class="profile-avatar-wrap">U</div>
+              <div class="profile-user-info">
+                <h1 id="profileName" class="profile-user-name">User</h1>
+                <p id="profileEmail" class="profile-user-email"></p>
+                <p id="profilePhone" class="profile-user-phone"></p>
+              </div>
+            </div>
+            <button class="edit-profile-action-btn" type="button" data-panel-target="profilePanel">Edit Profile</button>
+          </article>
+
+          <section id="overviewPanel" class="profile-panel-section active">
+            <div class="profile-cards-grid">
+              <a class="profile-card" href="orders.html">
+                <span class="profile-card-icon">Orders</span>
+                <h3>My Orders</h3>
+                <p>View, modify, and track orders</p>
+              </a>
+              <button class="profile-card" type="button" data-panel-target="paymentsPanel">
+                <span class="profile-card-icon">Pay</span>
+                <h3>My Payments</h3>
+                <p>View and manage payment methods</p>
+              </button>
+              <button class="profile-card" type="button" data-panel-target="walletPanel">
+                <span class="profile-card-icon">Wallet</span>
+                <h3>My Wallet</h3>
+                <p>Wallet history and redeemed gift cards</p>
+              </button>
+              <button class="profile-card" type="button" data-panel-target="addressesPanel">
+                <span class="profile-card-icon">Address</span>
+                <h3>My Addresses</h3>
+                <p>Edit, add, or remove addresses</p>
+              </button>
+              <button class="profile-card" type="button" data-panel-target="profilePanel">
+                <span class="profile-card-icon">Profile</span>
+                <h3>My Profile</h3>
+                <p>Edit personal info and change password</p>
+              </button>
+              <button class="profile-card" type="button" data-panel-target="supportPanel">
+                <span class="profile-card-icon">Help</span>
+                <h3>Help & Support</h3>
+                <p>Reach out to us</p>
+              </button>
+            </div>
+          </section>
+
+          <section id="profilePanel" class="profile-panel-section">
+            <div class="profile-panel-header">
+              <h2>Edit Profile</h2>
+              <p>Update your photo, contact details, delivery address, and password.</p>
+            </div>
+            <form id="profileForm" class="form">
+              <div class="avatar-edit-box">
+                <img id="avatarPreview" class="avatar-preview-img" alt="Profile preview" />
+                <div class="avatar-edit-controls">
+                  <label class="button secondary" for="avatarInput">Upload Image</label>
+                  <input id="avatarInput" name="avatarFile" type="file" accept="image/*" hidden />
+                  <p>PNG, JPG, or WEBP image. It is saved with your profile.</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="nameInput">Full Name</label>
+                <input id="nameInput" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label for="phoneInput">Phone Number</label>
+                <input id="phoneInput" name="phone" type="tel" autocomplete="tel" />
+              </div>
+              <div class="form-group">
+                <label for="addressInput">Address</label>
+                <textarea id="addressInput" name="address" rows="3" autocomplete="street-address"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="passwordInput">New Password</label>
+                <input id="passwordInput" name="password" type="password" minlength="3" maxlength="15" placeholder="Leave blank to keep current password" />
+                <p id="profilePasswordHint" class="password-requirement-hint">Use 3-15 characters and at least one symbol.</p>
+              </div>
+              <button class="button primary" type="submit">Save Profile</button>
+            </form>
+          </section>
+
+          <section id="addressesPanel" class="profile-panel-section">
+            <div class="profile-panel-header">
+              <h2>My Addresses</h2>
+              <p id="savedAddressText">No address saved yet.</p>
+            </div>
+            <button class="button secondary" type="button" data-panel-target="profilePanel">Edit Address</button>
+          </section>
+
+          <section id="paymentsPanel" class="profile-panel-section">
+            <div class="profile-panel-header">
+              <h2>My Payments</h2>
+              <p>No saved payment methods yet.</p>
+            </div>
+          </section>
+
+          <section id="walletPanel" class="profile-panel-section">
+            <div class="profile-panel-header">
+              <h2>My Wallet</h2>
+              <p>Your wallet balance is Rs. 0.</p>
+            </div>
+          </section>
+
+          <section id="supportPanel" class="profile-panel-section">
+            <div class="profile-panel-header">
+              <h2>Help & Support</h2>
+              <p>Email support@shopnest.local for account or order support.</p>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-bottom">
+        <div class="footer-bottom-container">
+          <p>&copy; 2026 ShopNest Retail Inc. All rights reserved.</p>
+          <div class="footer-legal-links">
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="js/app.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
+</html>
